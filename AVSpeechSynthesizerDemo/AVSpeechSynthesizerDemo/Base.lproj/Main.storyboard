@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yk8-zD-4hE">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Hello AVFoundation-->
+        <scene sceneID="UwQ-FQ-5Rn">
+            <objects>
+                <tableViewController id="K1H-FJ-kmw" customClass="MWViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mz3-E1-lp4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YouCell" rowHeight="65" id="31a-bT-vGU" customClass="MWBubbleCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="31a-bT-vGU" id="MHD-Tn-aOR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_right" translatesAutoresizingMaskIntoConstraints="NO" id="Aox-x6-64D" customClass="bubble_right">
+                                            <rect key="frame" x="348" y="2" width="252" height="56"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="jLU-4B-6Oe"/>
+                                                <constraint firstAttribute="width" constant="252" id="oE4-Vl-APF"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYW-9A-UdR">
+                                            <rect key="frame" x="380" y="2" width="200" height="54"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="MJT-hn-mr4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="MYW-9A-UdR" secondAttribute="bottom" constant="8" id="PdY-8N-qCf"/>
+                                        <constraint firstItem="MYW-9A-UdR" firstAttribute="top" secondItem="MHD-Tn-aOR" secondAttribute="top" constant="2" id="YNo-dz-m6J"/>
+                                        <constraint firstItem="Aox-x6-64D" firstAttribute="top" secondItem="MHD-Tn-aOR" secondAttribute="top" constant="2" id="gd1-J2-pRp"/>
+                                        <constraint firstAttribute="trailing" secondItem="Aox-x6-64D" secondAttribute="trailing" id="m1u-lu-gA6"/>
+                                        <constraint firstAttribute="trailing" secondItem="MYW-9A-UdR" secondAttribute="trailing" constant="20" id="n5d-tC-xGs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="messageLabel" destination="MYW-9A-UdR" id="kDR-n2-qnV"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AVFCell" rowHeight="63" id="dyS-1B-2Fj" customClass="MWBubbleCell">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyS-1B-2Fj" id="Xui-ac-Zqq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_left" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-op-lwZ">
+                                            <rect key="frame" x="0.0" y="2" width="252" height="56"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="252" id="0A7-zq-9Yv"/>
+                                                <constraint firstAttribute="height" constant="56" id="yyo-cY-BlB"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaE-nL-S0w">
+                                            <rect key="frame" x="20" y="2" width="200" height="52"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="qOU-vW-UIa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="IaE-nL-S0w" firstAttribute="leading" secondItem="Xui-ac-Zqq" secondAttribute="leading" constant="20" id="Dvj-zY-Zuo"/>
+                                        <constraint firstItem="IaE-nL-S0w" firstAttribute="top" secondItem="Xui-ac-Zqq" secondAttribute="top" constant="2" id="Jut-k1-Z3X"/>
+                                        <constraint firstItem="tCe-op-lwZ" firstAttribute="top" secondItem="Xui-ac-Zqq" secondAttribute="top" constant="2" id="VYR-Ca-pfq"/>
+                                        <constraint firstAttribute="bottom" secondItem="IaE-nL-S0w" secondAttribute="bottom" constant="8" id="hSm-NB-DXF"/>
+                                        <constraint firstItem="tCe-op-lwZ" firstAttribute="leading" secondItem="Xui-ac-Zqq" secondAttribute="leading" id="nIu-na-EhZ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="messageLabel" destination="IaE-nL-S0w" id="e6x-ju-yyt"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="K1H-FJ-kmw" id="8SJ-AK-41f"/>
+                            <outlet property="delegate" destination="K1H-FJ-kmw" id="WWY-ux-dHI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Hello AVFoundation" id="oCN-iN-SfH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWE-fG-10t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="267" y="470"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yA4-9B-Fcx">
+            <objects>
+                <navigationController id="yk8-zD-4hE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IqI-A2-Bee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K1H-FJ-kmw" kind="relationship" relationship="rootViewController" id="wiF-r8-tBK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rl-X0-xto" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-400" y="470"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bubble_left" width="41" height="35"/>
+        <image name="bubble_right" width="41" height="35"/>
+    </resources>
+</document>
