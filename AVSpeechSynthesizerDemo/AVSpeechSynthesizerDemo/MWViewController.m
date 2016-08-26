@@ -13,6 +13,7 @@
 @property (nonatomic,strong) AVSpeechSynthesizer *synthesizer;
 @property (strong, nonatomic) NSArray *voices;
 @property (strong, nonatomic) NSMutableArray *speechStrings;
+@property (strong, nonatomic) NSMutableArray *speechContent;
 @end
 
 @implementation MWViewController
@@ -38,16 +39,6 @@
 - (NSMutableArray *)speechStrings
 {
     if (!_speechStrings) {
-//        _speechStrings = @[@"Hello boys,How are you?",
-//                           @"你好。",
-//                           @"What are you doing?",
-//                           @"我正在看书。",
-//                           @"What's your favorite book?",
-//                           @"AVFoundation",
-//                           @"What's your favorite feature?",
-//                           @"我什么都喜欢，我想我深深爱上了它。",
-//                           @"OK,Have fun!"
-//                           ];
         _speechStrings = [NSMutableArray arrayWithArray:@[@"Hello boys,How are you?",
                                                           @"你好。",
                                                           @"What are you doing?",
@@ -67,6 +58,7 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 20.0f, 0.0f);
     self.synthesizer.delegate = self;
+    self.speechContent = [NSMutableArray array];
     [self beginConversation];
 }
 
@@ -74,8 +66,8 @@
     for (NSUInteger i = 0; i < self.speechStrings.count; i++) {
         AVSpeechUtterance *utterance =
         [[AVSpeechUtterance alloc] initWithString:self.speechStrings[i]];
-        utterance.voice = self.voices[i % 2];
-        utterance.rate = 0.5f;
+        utterance.voice = self.voices[i % 2]; // 指定语音
+        utterance.rate = 0.3f;  // 朗诵速度
         utterance.pitchMultiplier = 0.8f;
         utterance.postUtteranceDelay = 0.1f;
         [self.synthesizer speakUtterance:utterance];
@@ -90,7 +82,7 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.speechStrings.count;
+    return self.speechContent.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,7 +90,7 @@
     NSString *identifier = indexPath.row % 2 == 0 ? @"YouCell" : @"AVFCell";
     
     MWBubbleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    cell.messageLabel.text = self.speechStrings[indexPath.row];
+    cell.messageLabel.text = self.speechContent[indexPath.row];
     return cell;
 }
 
@@ -107,9 +99,9 @@
 #pragma mark -AVSpeechSynthesizerDelegate
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
 {
-    [self.speechStrings addObject:utterance.speechString];
+    [self.speechContent addObject:utterance.speechString];
     [self.tableView reloadData];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.speechStrings.count - 1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.speechContent.count - 1 inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
